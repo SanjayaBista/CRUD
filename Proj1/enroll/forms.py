@@ -1,0 +1,14 @@
+from django import forms
+from django.forms import widgets
+from .models import User
+from django.core import validators
+
+class StudentRegistration(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['name','email','position']
+        widgets = {
+            'name':forms.TextInput(attrs={'class':'form-control'}),
+            'email':forms.EmailInput(attrs={'class':'form-control'}),
+            'position':forms.TextInput(attrs={'class':'form-control'}),
+        }
